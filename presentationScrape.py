@@ -12,15 +12,15 @@ class Companies:
     def toJSON(self):
         return json.dumps(self, default=lambda o: o.__dict__,
             sort_keys=True, indent=4)
-
-
-print(os.path.abspath(r"C:\Users\Daniel\Documents\SustainAndGain\presentationFiles"))
+    
+#fill in your own info
+print(os.path.abspath(r".."))
 
 companies = []
 Description = []
 
-
-with open('PresentationTickers.txt', 'r') as _:
+#fill in your own info
+with open('...txt', 'r') as _:
     for line in _:
         line = line.strip()
         if line:
@@ -30,10 +30,11 @@ for value in companies:
     print(value)
 
 for company in companies:
-    try:
-        website_url = requests.get(f'https://www.di.se/bors/aktier/{company}/').text
+    try:                    #fill in your own info
+        website_url = requests.get(f'url..').text
         soup = BeautifulSoup(website_url,'lxml')
-        My_table = soup.find('div',{'class':'di_stock-company-info__column'}).get_text(strip=True)
+                            #fill in your own info
+        My_table = soup.find('div',{'class':'..htmltag'}).get_text(strip=True)
         time.sleep(1)
     except:
         continue
